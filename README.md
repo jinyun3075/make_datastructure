@@ -2,8 +2,8 @@
 <ul>
   <li>List
     <ol>
-      <ii>add,addLast,addFirst</li>
-      <ii>remove,removeLast,removeFirst</li>
+      <li>add,addLast,addFirst</li>
+      <li>remove,removeLast,removeFirst</li>
       <li>toString</li>
       <li>get</li>
     </ol>
