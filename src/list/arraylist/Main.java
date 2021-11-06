@@ -9,9 +9,9 @@ public class Main {
         arr.addLast(30);
         arr.addLast(40);
 
-        arr.add(1,15);
-        arr.addFirst(5);
 
+        System.out.println(arr.removeFirst());
+        System.out.println(arr.removeLast());
         System.out.println(arr);
 
     }
