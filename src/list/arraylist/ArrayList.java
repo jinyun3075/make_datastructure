@@ -10,10 +10,8 @@ public class ArrayList {
             Array 사이에 데이터를 넣기위해 입력된 인덱스값부터 배열값 뒤로 밀어넣기
      */
     public boolean add(int index, Object element) {
-        if (index > size - 1) {
-            System.out.println("가지고 있는 배열의 범위를 초과하였습니다!");
-            return false;
-        }
+
+        if (check(index)) return false;
         for (int i = size - 1; index <= i; i--) {
             elementData[i + 1] = elementData[i];
         }
@@ -29,6 +27,10 @@ public class ArrayList {
     }
 
     public boolean addFirst(Object element) {
+        if (size == 0) {
+            addLast(element);
+            return true;
+        }
         return add(0, element);
     }
 
@@ -37,11 +39,7 @@ public class ArrayList {
             받은 인덱스에 삭제하고 뒤에있는 데이터를 당겨와야한다.
      */
     public Object remove(int index) {
-        if (index > size - 1) {
-            System.out.println("가지고 있는 배열의 범위를 초과하였습니다!");
-            return false;
-        }
-
+        if (check(index)) return false;
         Object removed = elementData[index];
 
         for (int i = index; i < size - 1; i++) {
@@ -53,15 +51,47 @@ public class ArrayList {
 
         return removed;
     }
-    public Object removeFirst(){
+
+    public Object removeFirst() {
         return remove(0);
     }
-    public Object removeLast(){
-        return remove(size-1);
+
+    public Object removeLast() {
+        return remove(size - 1);
     }
+
     /*
-   출력 방식
-    */
+        데이터 가져오기
+     */
+    public Object get(int index) {
+        if (check(index)) return false;
+        return elementData[index];
+    }
+
+    public int size() {
+        return size;
+    }
+
+    public int indexOf(Object val){
+        for(int i=0;i<size;i++){
+            if(val.equals(elementData[i])){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    /*
+        인덱스 사이즈 확인인
+     */
+    private boolean check(int index) {
+        if (index > size - 1) {
+            System.out.println("가지고 있는 배열의 범위를 초과하였습니다!");
+            return true;
+        }
+        return false;
+    }
+
     public String toString() {
         String str = "[";
         for (int i = 0; i < size; i++) {
