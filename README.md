@@ -3,7 +3,7 @@
   <li>
     <h3>List</h3>
     <ul>
-      <h4>기능</h4> 
+      <h4>ArrayList</h4> 
         <li>add, addLast, addFirst</li>
         <li>remove, removeLast, removeFirst</li>
         <li>toString</li>
