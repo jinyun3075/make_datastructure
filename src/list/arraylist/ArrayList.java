@@ -1,4 +1,4 @@
-package list.arraylist.implementation;
+package list.arraylist;
 
 public class ArrayList {
     private int size = 0; // ArrayList 크기 지정
