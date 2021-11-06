@@ -1,7 +1,7 @@
 <h2> 자료구조 구현 하기 </h2>
 <ul>
   <li>
-    <h3>List</h3> -- 생활코딩 따라하기
+    <h3>List</h3>
     <ul>
       <h4>기능</h4> 
         <li>add, addLast, addFirst</li>
