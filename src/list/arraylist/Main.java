@@ -2,7 +2,7 @@ package list.arraylist;
 
 public class Main {
     public static void main(String[] args){
-        ArrayList arr = new ArrayList();
+        ArrayList<Integer> arr = new ArrayList<>();
 
         arr.addFirst(30);
         arr.add(0,10);

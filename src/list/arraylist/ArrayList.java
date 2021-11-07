@@ -1,35 +1,33 @@
 package list.arraylist;
 
-public class ArrayList {
-    private int size = 0; // ArrayList 크기 지정
-    private Object[] elementData = new Object[100]; // 수용할 수 있는 리스트 크기 100개
-
+public class ArrayList<T> {
+    private int size = 0; // ArrayList 크기
+    private Object[] data = new Object[100]; // 수용할 수 있는 리스트 크기 100개
 
     /*
         데이터 생성
             Array 사이에 데이터를 넣기위해 입력된 인덱스값부터 배열값 뒤로 밀어넣기
      */
-    public boolean add(int index, Object element) {
+    public boolean add(int index, T element) {
 
         if (check(index)) return false;
         for (int i = size - 1; index <= i; i--) {
-            elementData[i + 1] = elementData[i];
+            data[i + 1] = data[i];
         }
-        elementData[index] = element;
+        data[index] = element;
         size++;
         return true;
     }
 
-    public boolean addLast(Object element) {
-        elementData[size] = element;
+    public boolean addLast(T element) {
+        data[size] = element;
         size++;
         return true;
     }
 
-    public boolean addFirst(Object element) {
+    public boolean addFirst(T element) {
         if (size == 0) {
-            addLast(element);
-            return true;
+            return addLast(element);
         }
         return add(0, element);
     }
@@ -38,43 +36,43 @@ public class ArrayList {
         데이터 삭제
             받은 인덱스에 삭제하고 뒤에있는 데이터를 당겨와야한다.
      */
-    public Object remove(int index) {
-        if (check(index)) return false;
-        Object removed = elementData[index];
+    public T remove(int index) {
+        if (check(index)) return null;
+        T removed = (T)data[index];
 
         for (int i = index; i < size - 1; i++) {
-            elementData[i] = elementData[i + 1];
+            data[i] = data[i + 1];
         }
 
         size--;
-        elementData[size] = null;
+        data[size] = null;
 
         return removed;
     }
 
-    public Object removeFirst() {
+    public T removeFirst() {
         return remove(0);
     }
 
-    public Object removeLast() {
+    public T removeLast() {
         return remove(size - 1);
     }
 
     /*
         데이터 가져오기
      */
-    public Object get(int index) {
-        if (check(index)) return false;
-        return elementData[index];
+    public T get(int index) {
+        if (check(index)) return null;
+        return (T)data[index];
     }
 
     public int size() {
         return size;
     }
 
-    public int indexOf(Object val){
+    public int indexOf(T val){
         for(int i=0;i<size;i++){
-            if(val.equals(elementData[i])){
+            if(val.equals(data[i])){
                 return i;
             }
         }
@@ -95,7 +93,7 @@ public class ArrayList {
     public String toString() {
         String str = "[";
         for (int i = 0; i < size; i++) {
-            str += elementData[i];
+            str += data[i];
             if (i != size - 1)
                 str += ",";
         }
