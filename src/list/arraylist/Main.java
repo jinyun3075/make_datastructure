@@ -10,17 +10,23 @@ public class Main {
         arr.addLast(40);
         arr.addLast(50);
 
-        System.out.println("add............: "+arr);
+//        System.out.println("add............: "+arr);
+//
+//        arr.removeFirst();
+//        arr.removeLast();
+//
+//        System.out.println("remove.........: "+arr.remove(1)+", "+arr);
+//
+//
+//        System.out.println("get............: "+arr.get(1));
+//        System.out.println("size...........: "+arr.size());
+//        System.out.println("indexOf........: "+arr.indexOf(40)+" "+arr.indexOf(20));
 
-        arr.removeFirst();
-        arr.removeLast();
+        ListIterator<Integer> li = arr.listIterator();
 
-        System.out.println("remove.........: "+arr.remove(1)+", "+arr);
-
-
-        System.out.println("get............: "+arr.get(1));
-        System.out.println("size...........: "+arr.size());
-        System.out.println("indexOf........: "+arr.indexOf(40)+" "+arr.indexOf(20));
+        while (li.hasNext()){
+            System.out.println(li.next());
+        }
 
     }
 }

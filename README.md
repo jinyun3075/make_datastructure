@@ -8,6 +8,7 @@
         <li>remove, removeLast, removeFirst</li>
         <li>toString</li>
         <li>get, size, indexOf</li>
+        <li>Iterator</li>
     </ul>
   </li>
 </ul>

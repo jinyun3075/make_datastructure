@@ -79,6 +79,10 @@ public class ArrayList<T> {
         return -1;
     }
 
+    public ListIterator<T> listIterator(){
+        return new ListIterator<T>(data);
+    }
+
     /*
         인덱스 사이즈 확인인
      */
