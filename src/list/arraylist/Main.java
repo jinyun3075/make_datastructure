@@ -25,11 +25,17 @@ public class Main {
         ListIterator<Integer> li = arr.listIterator();
 
         while (li.hasNext()){
-            System.out.println(li.next());
+            int num = li.next();
+            if(num==30){
+                li.remove();
+            }
         }
-        while(li.hasPrevious()){
-            System.out.println(li.previous());
-        }
+        System.out.println(arr);
+//        while(li.hasPrevious()){
+//            System.out.println(li.previous());
+//        }
+
+
 
     }
 }

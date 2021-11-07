@@ -1,24 +1,17 @@
 package list.arraylist;
 
-public class ListIterator<T> {
-    private Object[] data;
-    private int nextIndex = 0;
-    ListIterator(Object[] data){
-        this.data=data;
-    }
-    public T next(){
-        return (T)data[nextIndex++];
-    }
+public interface ListIterator<T> {
+    int nextIndex = 0;
+    T next();
 
-    public boolean hasNext(){
-        return data[nextIndex]!=null;
-    }
+    boolean hasNext();
 
-    public T previous(){
-        return (T)data[--nextIndex];
-    }
+    T previous();
 
-    public boolean hasPrevious(){
-        return nextIndex > 0;
-    }
+    boolean hasPrevious();
+
+    void add(T element);
+
+    void remove();
+
 }

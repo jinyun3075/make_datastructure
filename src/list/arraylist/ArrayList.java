@@ -80,7 +80,34 @@ public class ArrayList<T> {
     }
 
     public ListIterator<T> listIterator(){
-        return new ListIterator<T>(data);
+        return new ListIterator<T>() {
+
+            private int nextIndex = 0;
+            public T next(){
+                return (T)data[nextIndex++];
+            }
+
+            public boolean hasNext(){
+                return data[nextIndex]!=null;
+            }
+
+            public T previous(){
+                return (T)data[--nextIndex];
+            }
+
+            public boolean hasPrevious(){
+                return nextIndex > 0;
+            }
+
+            public void add(T element){
+                ArrayList.this.add(nextIndex++,element);
+            }
+
+            public void remove(){
+                ArrayList.this.remove(nextIndex-1);
+                nextIndex--;
+            }
+        };
     }
 
     /*
@@ -103,4 +130,6 @@ public class ArrayList<T> {
         }
         return str + "]";
     }
+
+
 }
