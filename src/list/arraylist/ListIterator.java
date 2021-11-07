@@ -12,6 +12,13 @@ public class ListIterator<T> {
 
     public boolean hasNext(){
         return data[nextIndex]!=null;
+    }
 
+    public T previous(){
+        return (T)data[--nextIndex];
+    }
+
+    public boolean hasPrevious(){
+        return nextIndex > 0;
     }
 }
