@@ -27,7 +27,7 @@ public class Main {
         while (li.hasNext()){
             int num = li.next();
             if(num==30){
-                li.remove();
+                System.out.println(li.next());
             }
         }
         System.out.println(arr);

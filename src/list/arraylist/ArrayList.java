@@ -104,8 +104,7 @@ public class ArrayList<T> {
             }
 
             public void remove(){
-                ArrayList.this.remove(nextIndex-1);
-                nextIndex--;
+                ArrayList.this.remove(--nextIndex);
             }
         };
     }
