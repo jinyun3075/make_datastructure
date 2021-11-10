@@ -6,7 +6,9 @@ public class Main {
 
         arr.addFirst(20);
         arr.addFirst(10);
-
         arr.addLast(30);
+        arr.add(1,15);
+
+        System.out.println(arr);
     }
 }
