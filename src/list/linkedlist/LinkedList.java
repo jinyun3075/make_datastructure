@@ -6,6 +6,7 @@ public class LinkedList {
     private Node tail;
     private int size = 0;
 
+//    노드 클래스
     private class Node {
         private Object data;
         private Node next;
@@ -20,6 +21,16 @@ public class LinkedList {
         }
     }
 
+//    노드 찾기 head부터 ~
+    Node node(int index) {
+        Node temp = head;
+        for (int i = 0; i < index; i++) {
+            temp = temp.next;
+        }
+        return temp;
+    }
+
+//    기능
     public void addFirst(Object input) {
         Node newNode = new Node(input);
         newNode.next = head;
@@ -41,20 +52,13 @@ public class LinkedList {
         }
     }
 
-    Node node(int index) {
-        Node temp = head;
-        for (int i = 0; i < index; i++) {
-            temp = temp.next;
-        }
-        return temp;
-    }
 
     public void add(int index, Object input) {
         if (index == 0) {
             addFirst(input);
             return;
         }
-        if (index == size){
+        if (index == size) {
             addLast(input);
             return;
         }
@@ -67,19 +71,80 @@ public class LinkedList {
         size++;
     }
 
-    public String toString(){
-        if(head == null){
+
+    public Object removeFirst() {
+        Node temp = head;
+        head = head.next;
+        Object returnData = temp.data;
+        temp = null;
+        size--;
+        return returnData;
+    }
+
+    public Object remove(int index) {
+        if (index == 0) {
+            return removeFirst();
+        }
+        Node temp = node(index - 1);
+        Node deleteNode = temp.next;
+        temp.next = deleteNode.next;
+        Object returnData = deleteNode.data;
+
+        if (deleteNode == tail) {
+            tail = temp;
+        }
+        deleteNode = null;
+        size--;
+        return returnData;
+    }
+
+    public Object removeLast() {
+        return remove(size - 1);
+    }
+
+    public int size() {
+        return size;
+    }
+
+    public Object get(int index) {
+        return node(index).data;
+    }
+
+    public int indexOf(Object data) {
+        Node temp = head;
+
+//        int index = 0;
+//        while (temp.data != data) {
+//            temp = temp.next;
+//            index++;
+//            if (temp == null){
+//                return -1;
+//            }
+//        }
+//        return index;
+
+        for (int i = 0; i < size; i++) {
+            if (temp.data == data) {
+                return i;
+            }
+            temp = temp.next;
+        }
+        return -1;
+    }
+
+//    출력
+    public String toString() {
+        if (head == null) {
             return "[]";
         }
         Node temp = head;
-        String str ="[";
+        String str = "[";
 
-        while(temp.next != null){
-            str += temp+ ", ";
-            temp=temp.next;
+        while (temp.next != null) {
+            str += temp.data + ", ";
+            temp = temp.next;
         }
-        str+=temp;
-        return str+"]";
+        str += temp.data;
+        return str + "]";
     }
-
 }
