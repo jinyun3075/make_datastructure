@@ -120,7 +120,7 @@ public class LinkedList {
 //            if (temp == null){
 //                return -1;
 //            }
-//        }
+//        } check
 //        return index;
 
         for (int i = 0; i < size; i++) {
