@@ -10,12 +10,26 @@ public class Main {
         arr.addLast(40);
         arr.add(1,15);
 
+//        System.out.println(arr);
+//        System.out.println(arr.indexOf(44));
+//        System.out.println("리스트 사이즈 : "+arr.size());
+//        System.out.println("삭제 노드: "+arr.removeFirst()+"  남은 노드: "+arr);
+//        System.out.println("삭제 노드: "+arr.remove(1)+"  남은 노드: "+arr);
+//        System.out.println("삭제 노드: "+arr.removeLast()+"  남은 노드: "+arr);
+//        System.out.println("선택 노드: "+arr.get(1)+"  남은 노드: "+arr);
+
+        ListIterator i = arr.listIterator();
+
+//        while(i.hasNext()){
+//            System.out.println(i.next());
+//        }
+
+        i.add(5);
+        i.next();
+        i.next();
+        i.add(25);
+        i.remove();
         System.out.println(arr);
-        System.out.println(arr.indexOf(44));
-        System.out.println("리스트 사이즈 : "+arr.size());
-        System.out.println("삭제 노드: "+arr.removeFirst()+"  남은 노드: "+arr);
-        System.out.println("삭제 노드: "+arr.remove(1)+"  남은 노드: "+arr);
-        System.out.println("삭제 노드: "+arr.removeLast()+"  남은 노드: "+arr);
-        System.out.println("선택 노드: "+arr.get(1)+"  남은 노드: "+arr);
+
     }
 }

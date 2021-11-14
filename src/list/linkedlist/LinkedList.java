@@ -147,4 +147,45 @@ public class LinkedList {
         str += temp.data;
         return str + "]";
     }
+
+    public ListIterator listIterator() {
+        return new ListIterator(){
+            private Node next =head;
+            private int nextIndex;
+            private Node val;
+
+            public Object next(){
+                val = next;
+                next = next.next;
+                nextIndex++;
+                return val.data;
+            }
+
+            public boolean hasNext(){
+                return next!=null;
+            }
+
+            public void add(Object o) {
+                Node newNode = new Node(o);
+
+                if(val==null){
+                    head = newNode;
+                }else{
+                    val.next = newNode;
+                }
+                newNode.next = next;
+                val= newNode;
+                nextIndex++;
+                size++;
+
+            }
+
+            public Object remove() {
+                if(nextIndex == 0) {
+                    throw new IllegalStateException();
+                }
+                return LinkedList.this.remove(--nextIndex);
+            }
+        };
+    }
 }
